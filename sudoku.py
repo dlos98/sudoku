@@ -3,17 +3,17 @@ import numpy
 from numpy import *
 
 #Print function
-def blankSudoku():
+def blankSudoku(puz):
     count=0
     print("------------------------------------")
     for row in range(9):
         for column in range(9):
-            print(su6[column+count],"|", end=" ")
+            print(puz[column+count],"|", end=" ")
         print()
         print("------------------------------------")
         count=count+9
 
-sudokuChoices=["sudoku1","sudoku2","sudoku3","sudoku4","sudoku5"]
+####################################################################################################################################
 
 #PUZZLES
 #Matrix sudoku
@@ -30,14 +30,17 @@ su3=[0,7,0,0,0,0,6,0,8,9,0,0,7,0,8,2,5,3,8,0,2,0,6,0,4,0,7,4,0,3,1,7,0,9,0,0,7,0
 su4=[0,2,0,8,0,0,9,0,0,0,8,1,5,0,2,0,3,7,5,0,0,9,4,1,8,2,6,0,0,5,0,1,6,0,0,0,0,4,2,0,0,0,6,1,0,0,0,0,7,9,0,5,0,0,6,5,9,1,7,3,0,0,8,3,7,0,4,0,9,1,6,0,0,0,4,0,0,8,0,9,0]
 su5=[0,0,8,5,6,0,0,0,0,1,5,6,2,4,9,3,0,7,0,4,9,1,0,7,0,5,6,4,2,0,0,1,0,0,0,0,8,9,0,0,0,0,0,4,1,0,0,0,0,7,0,0,2,8,9,1,0,4,0,8,6,7,0,7,0,2,3,5,6,1,9,0,0,0,0,0,9,1,8,0,0]
 
+####################################################################################################################################
+
 #PRINTS
 #For matrix
 for i in range(9):
     print(sudoku1[i])
 
 #For array
-blankSudoku()
+blankSudoku(su1)
 
+####################################################################################################################################
 
 #BLANK SPACE SUDOKUS
 #Matrix
@@ -46,10 +49,22 @@ sudoku6=[[' ',' ','8','5','6',' ',' ',' ',' '],['1','5','6','2','4','9','3',' ',
 #Array
 su6=[' ',' ','8','5','6',' ',' ',' ',' ','1','5','6','2','4','9','3',' ','7',' ','4','9','1',' ','7',' ','5','6','4','2',' ',' ','1',' ',' ',' ',' ','8','9',' ',' ',' ',' ',' ','4','1',' ',' ',' ',' ','7',' ',' ','2','8','9','1',' ','4',' ','8','6','7',' ','7',' ','2','3','5','6','1','9',' ',' ',' ',' ',' ','9','1','8',' ',' ']
 
+####################################################################################################################################
 
-#Randomize sudoku attempt
-rdmNumb=random.randint(1,5)
+#RANDOM PUZZLE PRINT
+#Randomize sudoku array
+sudokuChoices=[su1,su2,su3,su4,su5,su6]
+rdmNumb=random.randint(1,7)
 
 print(rdmNumb,sudokuChoices[rdmNumb-1])
 chosen=sudokuChoices[rdmNumb-1]
-print(chosen)
+blankSudoku(chosen)
+
+#Randomize sudoku matrix
+sudokuChoicesM=[sudoku1,sudoku2,sudoku3,sudoku4,sudoku5,sudoku6]
+rdmNumb=random.randint(1,7)
+
+print(rdmNumb,sudokuChoicesM[rdmNumb-1])
+chosenM=sudokuChoicesM[rdmNumb-1]
+for i in range(9):
+    print(chosenM[i])
