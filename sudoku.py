@@ -2,17 +2,37 @@ import random
 import numpy
 from numpy import *
 
+class style:
+    BOLD = "\033[1m"
+    END = "\033[0m"
+
 #FUNCTIONS
 #Print function
 def blankSudoku(puz):
     count=0
-    print("------------------------------------")
+    print(style.BOLD + "=========================================" + style.END)
     for row in range(9):
         for column in range(9):
-            print(puz[column+count],"|", end=" ")
+            if column == 0:
+                print(style.BOLD + "ㅒ" + style.END, end=" ")
+            if (column+1)%3 == 0:
+                print(puz[column+count],style.BOLD + "ㅒ" + style.END, end=" ")
+            else:
+                print(puz[column+count],"|", end=" ")
         print()
-        print("------------------------------------")
+        if (row+1)%3 == 0:
+            print(style.BOLD + "=========================================" + style.END)
+        else:
+            print("-----------------------------------------")
         count=count+9
+
+
+#Bold given numbers
+def boldNum(array):
+    for i in range(81):
+        if array[i] != ' ':
+            array[i] = style.BOLD + array[i] + style.END
+            print(array[i])
 
 #Read position funtion
 def readPosition():
@@ -65,8 +85,14 @@ blankSudoku(chosen)
 
 ####################################################################################################################################
 
-#USER INPUT
+#TESTS
 #Test
 readPosition()
+
 #Fill test
-fillSudoku(su1)
+fillSudoku(chosen)
+
+#Bold test
+boldNum(chosen)
+blankSudoku(chosen)
+
