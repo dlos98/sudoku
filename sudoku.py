@@ -2,6 +2,7 @@ import random
 import numpy
 from numpy import *
 
+#FUNCTIONS
 #Print function
 def blankSudoku(puz):
     count=0
@@ -12,6 +13,13 @@ def blankSudoku(puz):
         print()
         print("------------------------------------")
         count=count+9
+
+#Read position funtion
+def readPosition():
+    row = input("Enter row number: ")
+    col = input("Enter column number: ")
+    val = input("Enter desired value: ")
+    return row, col,val
 
 ####################################################################################################################################
 
@@ -33,10 +41,16 @@ blankSudoku(su1)
 ####################################################################################################################################
 
 #RANDOM PUZZLE PRINT
-#Randomize sudoku array
+
 sudokuChoices=[su1,su2,su3,su4,su5,su6]
 rdmNumb=random.randint(1,7)
 
 print(rdmNumb,sudokuChoices[rdmNumb-1])
 chosen=sudokuChoices[rdmNumb-1]
 blankSudoku(chosen)
+
+####################################################################################################################################
+
+#USER INPUT
+#Test
+readPosition()
