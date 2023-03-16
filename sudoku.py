@@ -32,7 +32,6 @@ def boldNum(array):
     for i in range(81):
         if array[i] != ' ':
             array[i] = style.BOLD + array[i] + style.END
-            print(array[i])
 
 #Read position funtion
 def readPosition():
@@ -40,6 +39,7 @@ def readPosition():
     col = input("Enter column number: ")
     val = input("Enter desired value: ")
     return row, col,val
+
 
 #Fill sudoku function
 def fillSudoku(puz):
@@ -54,6 +54,12 @@ def fillSudoku(puz):
         blankSudoku(puz)
     else:
         print("The value in this position is unchangable, please select a new position.")
+
+#Check puzzle completion
+def isComplete(sol):
+    for i in range(81):
+        if sol[i] == ' ':
+            return False
 
 #Solution check
 def isSolved(filled, key):
@@ -99,33 +105,29 @@ solvedSu10=['1','4','8','2','5','9','7','3','6','3','7','6','4','1','8','2','9',
 
 ####################################################################################################################################
 
-#PUZZLE PRINT
-
-blankSudoku(su1)
-
-####################################################################################################################################
-
 #RANDOM PUZZLE PRINT
 
-sudokuChoices=[su1,su2,su3,su4,su5,su6]
-rdmNumb=random.randint(1,7)
+sudokuChoices=[su1,su2,su3,su4,su5,su6,su7,su8,su9,su10]
+sudokuAnswers=[solvedSu1,solvedSu2,solvedSu3,solvedSu4,solvedSu5,solvedSu6,solvedSu7,solvedSu8,solvedSu9,solvedSu10]
+rdmNumb=random.randint(1,11)
 
-print(rdmNumb,sudokuChoices[rdmNumb-1])
 chosen=sudokuChoices[rdmNumb-1]
-blankSudoku(chosen)
+chosenKey=sudokuAnswers[rdmNumb-1]
 
 ####################################################################################################################################
 
-#TESTS
-#Test
-readPosition()
+#PROGRAM
 
-#Fill test
-fillSudoku(chosen)
-
-#Bold test
+#Show puzzle to be solved
 boldNum(chosen)
 blankSudoku(chosen)
 
-#Solution check test
-isSolved(su1,solvedSu1)
+#Answer sudoku
+fillSudoku(chosen)
+
+#Recursive filling
+if isComplete(fillSudoku(chosen)) == False:
+    fillSudoku(chosen)
+else:
+#Check user solution
+ isSolved(chosen,chosenKey)
