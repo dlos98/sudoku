@@ -52,8 +52,10 @@ def fillSudoku(puz):
         val = input("Enter desired value: ")
         puz[arrayPos]=val
         blankSudoku(puz)
+        return puz
     else:
         print("The value in this position is unchangable, please select a new position.")
+        return puz
 
 #Check puzzle completion
 def isComplete(sol):
@@ -123,11 +125,12 @@ boldNum(chosen)
 blankSudoku(chosen)
 
 #Answer sudoku
-fillSudoku(chosen)
+isComplete(fillSudoku(chosen))
 
 #Recursive filling
-if isComplete(fillSudoku(chosen)) == False:
-    fillSudoku(chosen)
-else:
+while isComplete(fillSudoku(chosen)) == False:
+    #fillSudoku(chosen)
+    isComplete(fillSudoku(chosen))
+
 #Check user solution
- isSolved(chosen,chosenKey)
+isSolved(chosen,chosenKey)
