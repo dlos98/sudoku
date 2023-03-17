@@ -33,13 +33,12 @@ def boldNum(array):
         if array[i] != ' ':
             array[i] = style.BOLD + array[i] + style.END
 
-#Read position funtion
-def readPosition():
-    row = input("Enter row number: ")
-    col = input("Enter column number: ")
-    val = input("Enter desired value: ")
-    return row, col,val
-
+#Bold answer key
+def boldKey(blank,key):
+    for i in range(81):
+        if blank[i] == key[i]:
+            key[i] = style.BOLD + key[i] + style.END
+    return key
 
 #Fill sudoku function
 def fillSudoku(puz):
@@ -119,18 +118,16 @@ chosenKey=sudokuAnswers[rdmNumb-1]
 ####################################################################################################################################
 
 #PROGRAM
+#Equal key
+bKey=boldKey(chosen,chosenKey)
 
 #Show puzzle to be solved
 boldNum(chosen)
 blankSudoku(chosen)
 
 #Answer sudoku
-isComplete(fillSudoku(chosen))
-
-#Recursive filling
 while isComplete(fillSudoku(chosen)) == False:
-    #fillSudoku(chosen)
     isComplete(fillSudoku(chosen))
 
 #Check user solution
-isSolved(chosen,chosenKey)
+isSolved(chosen,bKey)
