@@ -1,0 +1,5 @@
+Sudoku game that gives you a random puzzle to solve.
+In order to solve it, you must first choose which position you wish to add a number to, by indicationg a row and column.
+Then enter the number you want to place there.
+Once the whole puzzle is solved, it will say if it is solved correctly or not.
+If it is correct you may choose to start a new puzzle or not. If it is wrong you may start over or choose a new one.
