@@ -49,8 +49,8 @@ def fillSudoku(puz):
     arrayPos = (9*(r-1))+(c-1)
     if puz[arrayPos] == ' ':
         val = int(input("Enter desired value (from 1 to 9): "))
-        if val < 1 | val > 9:
-            print('Please enter a value between 1 and 9.')
+        while val < 1 or val > 9:
+            print(style.BOLD + "Please enter a value between 1 and 9." + style.END)
             val = int(input("Enter desired value (from 1 to 9): "))
         puz[arrayPos]=val
         blankSudoku(puz)
