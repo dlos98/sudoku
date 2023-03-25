@@ -48,7 +48,7 @@ def fillSudoku(puz):
     c=int(col)
     arrayPos = (9*(r-1))+(c-1)
     if puz[arrayPos] == ' ':
-        val = input("Enter desired value: ")
+        val = int(input("Enter desired value: "))
         puz[arrayPos]=val
         blankSudoku(puz)
         return puz
