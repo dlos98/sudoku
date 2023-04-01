@@ -117,7 +117,7 @@ print(rdmNumb)
 chosen = []
 
 for i, line in enumerate(f):
-    if i == rdmNumb-1:
+    if i == 0:
         chosen = line
 
 
