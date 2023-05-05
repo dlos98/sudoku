@@ -114,14 +114,19 @@ solvedSu10=['1','4','8','2','5','9','7','3','6','3','7','6','4','1','8','2','9',
 sudokuAnswers=[solvedSu1,solvedSu2,solvedSu3,solvedSu4,solvedSu5,solvedSu6,solvedSu7,solvedSu8,solvedSu9,solvedSu10]
 rdmNumb=random.randint(1,10)
 print(rdmNumb)
-chosen = []
 
-for i, line in enumerate(f):
-    if i == 0:
-        chosen = line
+#Read all lines from file and hold as object
+csvLines = f.readlines()
+print(csvLines[rdmNumb-1])
+
+'''
+#Read a specific line
+with open("puzzles.txt", "r") as f:
+    chosen = f.readlines()[rdmNumb-1]
+    print(chosen)
+'''
 
 
-print(chosen)
 
 """
 chosen=sudokuChoices[rdmNumb-1]
@@ -132,7 +137,7 @@ chosenKey=sudokuAnswers[rdmNumb-1]
 
 #PROGRAM
 #Equal key
-bKey=boldKey(chosen,chosenKey)
+##bKey=boldKey(chosen,chosenKey)
 
 #Show puzzle to be solved
 boldNum(chosen)
@@ -143,4 +148,4 @@ while isComplete(fillSudoku(chosen)) == False:
     isComplete(fillSudoku(chosen))
 
 #Check user solution
-isSolved(chosen,bKey)
+##isSolved(chosen,bKey)
