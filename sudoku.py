@@ -55,6 +55,19 @@ def fillSudoku(puz):
         puz[arrayPos]=val
         blankSudoku(puz)
         return puz
+    elif type(puz[arrayPos]) == int:
+        print(style.BOLD + "You are changing the previous value of row " + row + " and column " + col + style.END)
+        val = int(input("Enter desired value (from 1 to 9): [If you do not wish to change ths value enter '0']"))
+        if val == 0:
+            blankSudoku(puz)
+            return puz
+        else:
+            while val < 1 or val > 9:
+                print(style.BOLD + "Please enter a value between 1 and 9." + style.END)
+                val = int(input("Enter desired value (from 1 to 9): "))
+            puz[arrayPos]=val
+            blankSudoku(puz)
+            return puz
     else:
         print("The value in this position is unchangable, please select a new position.")
         return puz
@@ -131,6 +144,7 @@ blankSudoku(chosen)
 #Answer sudoku
 while isComplete(fillSudoku(chosen)) == False:
     isComplete(fillSudoku(chosen))
+    print(chosen)
 
 #Check user solution
 isSolved(chosen,bKey)
