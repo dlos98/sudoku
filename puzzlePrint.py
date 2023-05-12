@@ -1,0 +1,37 @@
+class style:
+    BOLD = "\033[1m"
+    END = "\033[0m"
+
+#FUNCTIONS
+#Print function
+def printSudoku(puz):
+    count=0
+    print(style.BOLD + "=========================================" + style.END)
+    for row in range(9):
+        for column in range(9):
+            if column == 0:
+                print(style.BOLD + "ㅒ" + style.END, end=" ")
+            if (column+1)%3 == 0:
+                print(puz[column+count],style.BOLD + "ㅒ" + style.END, end=" ")
+            else:
+                print(puz[column+count],"|", end=" ")
+        print()
+        if (row+1)%3 == 0:
+            print(style.BOLD + "=========================================" + style.END)
+        else:
+            print("-----------------------------------------")
+        count=count+9
+
+
+#Bold given numbers
+def boldNum(array):
+    for i in range(81):
+        if array[i] != ' ':
+            array[i] = style.BOLD + array[i] + style.END
+
+#Bold answer key
+def boldKey(blank,key):
+    for i in range(81):
+        if blank[i] == key[i]:
+            key[i] = style.BOLD + key[i] + style.END
+    return key
