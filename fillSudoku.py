@@ -1,3 +1,5 @@
+from puzzlePrint import *
+
 #Fill sudoku function
 def fillSudoku(puz):
     row = input("Enter row number: ")
