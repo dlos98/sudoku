@@ -1,78 +1,9 @@
+from puzzlePrint import *
+from fillSudoku import *
+from solutionCheck import *
 import random
 import numpy
-from numpy import *
-
-class style:
-    BOLD = "\033[1m"
-    END = "\033[0m"
-
-#FUNCTIONS
-#Print function
-def blankSudoku(puz):
-    count=0
-    print(style.BOLD + "=========================================" + style.END)
-    for row in range(9):
-        for column in range(9):
-            if column == 0:
-                print(style.BOLD + "ㅒ" + style.END, end=" ")
-            if (column+1)%3 == 0:
-                print(puz[column+count],style.BOLD + "ㅒ" + style.END, end=" ")
-            else:
-                print(puz[column+count],"|", end=" ")
-        print()
-        if (row+1)%3 == 0:
-            print(style.BOLD + "=========================================" + style.END)
-        else:
-            print("-----------------------------------------")
-        count=count+9
-
-
-#Bold given numbers
-def boldNum(array):
-    for i in range(81):
-        if array[i] != ' ':
-            array[i] = style.BOLD + array[i] + style.END
-
-#Bold answer key
-def boldKey(blank,key):
-    for i in range(81):
-        if blank[i] == key[i]:
-            key[i] = style.BOLD + key[i] + style.END
-    return key
-
-#Fill sudoku function
-def fillSudoku(puz):
-    row = input("Enter row number: ")
-    col = input("Enter column number: ")
-    r=int(row)
-    c=int(col)
-    arrayPos = (9*(r-1))+(c-1)
-    if puz[arrayPos] == ' ':
-        val = input("Enter desired value: ")
-        puz[arrayPos]=val
-        blankSudoku(puz)
-        return puz
-    else:
-        print("The value in this position is unchangable, please select a new position.")
-        return puz
-
-#Check puzzle completion
-def isComplete(sol):
-    for i in range(81):
-        if sol[i] == ' ':
-            return False
-
-#Solution check
-def isSolved(filled, key):
-    isSol = True
-    for i in range(81):
-        if filled[i] != key[i]:
-            isSol = False
-    if isSol == False:
-        print('Sorry, the solution is incorrect. Try again')
-    else:
-        print('Congratulations!')        
-    
+from numpy import *   
 
 ####################################################################################################################################
 
@@ -123,7 +54,7 @@ bKey=boldKey(chosen,chosenKey)
 
 #Show puzzle to be solved
 boldNum(chosen)
-blankSudoku(chosen)
+printSudoku(chosen)
 
 #Answer sudoku
 while isComplete(fillSudoku(chosen)) == False:
