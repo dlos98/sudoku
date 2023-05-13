@@ -40,11 +40,15 @@ def boldKey(blank,key):
 
 #Fill sudoku function
 def fillSudoku(puz):
-    row = input("Enter row number: ")
-    col = input("Enter column number: ")
-    r=int(row)
-    c=int(col)
-    arrayPos = (9*(r-1))+(c-1)
+    row = int(input("Enter row number (from 1 to 9): "))
+    while row < 1 or row > 9:
+        print(style.BOLD + "Please enter a value between 1 and 9" + style.END)
+        row = int(input("Enter row number (from 1 to 9): "))
+    col = int(input("Enter column number (from 1 to 9): "))
+    while col < 1 or col > 9:
+        print(style.BOLD + "Please enter a value between 1 and 9" + style.END)
+        col = int(input("Enter column number (from 1 to 9): "))
+    arrayPos = (9*(row-1))+(col-1)
     if puz[arrayPos] == ' ':
         val = input("Enter desired value: ")
         puz[arrayPos]=val
