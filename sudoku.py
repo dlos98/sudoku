@@ -73,8 +73,8 @@ def isSolved(filled, key):
     else:
         print('Congratulations!')        
     
-#Convert string to list
-def convertStr(string):
+#Convert file line string to list of strings (each number is an element of the list)
+def convertStrToList(string):
     puzList = list(string.split(","))
     if puzList[80] == ' \n':
         puzList[80] = ' '
@@ -103,19 +103,19 @@ fKey = open("solvedPuzzles.csv", "r")
 #sudokuAnswers=[solvedSu1,solvedSu2,solvedSu3,solvedSu4,solvedSu5,solvedSu6,solvedSu7,solvedSu8,solvedSu9,solvedSu10]
 #Chose random puzzle
 rdmNumb=random.randint(1,10)
-print(rdmNumb)
+
 
 #Read all lines from puzzles file and hold chosen puzzle
 csvLines = f.readlines()
 chosen = csvLines[rdmNumb-1]
 
-#Convert chosen puzzle list to string
-chosenList = convertStr(chosen)
+#Convert chosen puzzle string to list of strings
+chosenList = convertStrToList(chosen)
 
-#Read lines from answer key file, hold correct puzzle key and convert to string
+#Read lines from answer key file, hold correct puzzle key and convert to list of strings
 fileLines = fKey.readlines()
 chosenKey = fileLines[rdmNumb-1]
-chosenKeyList = convertStr(chosenKey)
+chosenKeyList = convertStrToList(chosenKey)
 
 '''
 #Read a specific line
