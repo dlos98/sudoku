@@ -78,13 +78,6 @@ def isComplete(sol):
         if sol[i] == ' ':
             return False
 
-#Change int from answers to string
-def intToStr(mySolution):
-    for i in range(81):
-        if type(mySolution[i]) == int:
-            mySolution[i] = str(mySolution[i])
-    return mySolution
-
 #Solution check
 def isSolved(filled, key):
     isSol = True
@@ -154,7 +147,9 @@ while isComplete(fillSudoku(chosen)) == False:
     print(chosen)
 
 #Change solution to String
-chosen = intToStr(chosen)
+for i in range(81):
+    if type(chosen[i]) == int:
+        chosen[i] = str(chosen[i])
 
 #Check user solution
 isSolved(chosen,bKey)
