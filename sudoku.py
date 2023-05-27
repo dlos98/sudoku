@@ -96,7 +96,7 @@ with open('puzzles.csv', 'r') as f:
 #ANSWER KEYS
 #Open and read answer key file
 with open('solvedPuzzles.csv', 'r') as fKey:
-    fileLines = fKey.readlines()
+    answersLines = fKey.readlines()
 
 ####################################################################################################################################
 
@@ -114,7 +114,7 @@ chosen = puzzlesLines[rdmNumb-1]
 chosenList = convertStrToList(chosen)
 
 #Read lines from answer key file, hold correct puzzle key and convert to list of strings
-chosenKey = fileLines[rdmNumb-1]
+chosenKey = answersLines[rdmNumb-1]
 chosenKeyList = convertStrToList(chosenKey)
 
 ####################################################################################################################################
