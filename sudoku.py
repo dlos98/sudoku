@@ -87,13 +87,14 @@ def convertStrToList(string):
 ####################################################################################################################################
 
 #PUZZLES
-
-f = open("puzzles.txt", "r")
+#Open and read puzzles file
+with open('puzzles.csv', 'r') as f:
+    csvLines = f.readlines()
 
 ####################################################################################################################################
 
 #ANSWER KEYS
-
+#Open and read answer key file
 fKey = open("solvedPuzzles.csv", "r")
 
 ####################################################################################################################################
@@ -105,8 +106,7 @@ fKey = open("solvedPuzzles.csv", "r")
 rdmNumb=random.randint(1,10)
 
 
-#Read all lines from puzzles file and hold chosen puzzle
-csvLines = f.readlines()
+#Hold chosen puzzle from file
 chosen = csvLines[rdmNumb-1]
 
 #Convert chosen puzzle string to list of strings
@@ -117,12 +117,6 @@ fileLines = fKey.readlines()
 chosenKey = fileLines[rdmNumb-1]
 chosenKeyList = convertStrToList(chosenKey)
 
-'''
-#Read a specific line
-with open("puzzles.txt", "r") as f:
-    chosen = f.readlines()[rdmNumb-1]
-    print(chosen)
-'''
 ####################################################################################################################################
 
 #PROGRAM
