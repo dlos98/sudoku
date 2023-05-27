@@ -89,7 +89,7 @@ def convertStrToList(string):
 #PUZZLES
 #Open and read puzzles file
 with open('puzzles.csv', 'r') as f:
-    csvLines = f.readlines()
+    puzzlesLines = f.readlines()
 
 ####################################################################################################################################
 
@@ -107,7 +107,7 @@ rdmNumb=random.randint(1,10)
 
 
 #Hold chosen puzzle from file
-chosen = csvLines[rdmNumb-1]
+chosen = puzzlesLines[rdmNumb-1]
 
 #Convert chosen puzzle string to list of strings
 chosenList = convertStrToList(chosen)
