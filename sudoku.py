@@ -1,6 +1,4 @@
 import random
-import numpy
-from numpy import *
 
 class style:
     BOLD = "\033[1m"
