@@ -44,7 +44,7 @@ bKey=boldKey(chosenList,chosenKeyList)
 
 #Show puzzle to be solved
 boldNum(chosenList)
-blankSudoku(chosenList)
+printSudoku(chosenList)
 
 boldNum(chosen)
 printSudoku(chosen)
