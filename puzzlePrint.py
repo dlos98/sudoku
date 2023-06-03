@@ -35,3 +35,13 @@ def boldKey(blank,key):
         if blank[i] == key[i]:
             key[i] = style.BOLD + key[i] + style.END
     return key
+
+#Convert file line string to list of strings (each number is an element of the list)
+def convertStrToList(string):
+    puzList = list(string.split(","))
+    if puzList[80] == ' \n':
+        puzList[80] = ' '
+    for i in range(9):
+        if puzList[80] == (str(i+1) + '\n'):
+            puzList[80] = str(i+1)
+    return puzList
