@@ -2,26 +2,37 @@ from puzzlePrint import *
 
 #Fill sudoku function
 def fillSudoku(puz):
+    #Row value
     while True:
         try:
             row = int(input("Enter row number (from 1 to 9): "))
             break
-        except:
-            print('A non-integer was entered')
-    '''row = int(input("Enter row number (from 1 to 9): "))
+        except ValueError:
+            print(style.BOLD + 'A non-integer was entered. Try again.' + style.END)
     while row < 1 or row > 9:
         print(style.BOLD + "Please enter a value between 1 and 9" + style.END)
-        row = int(input("Enter row number (from 1 to 9): "))'''
+        while True:
+            try:
+                row = int(input("Enter row number (from 1 to 9): "))
+                break
+            except ValueError:
+                print(style.BOLD + 'A non-integer was entered. Try again.' + style.END)
+    #Column value
     while True:
         try:
             col = int(input("Enter column number (from 1 to 9): "))
             break
-        except:
-            print('A non-integer was entered')
-    '''col = int(input("Enter column number (from 1 to 9): "))
+        except ValueError:
+            print(style.BOLD + 'A non-integer was entered. Try again.' + style.END)
     while col < 1 or col > 9:
         print(style.BOLD + "Please enter a value between 1 and 9" + style.END)
-        col = int(input("Enter column number (from 1 to 9): "))'''
+        while True:
+            try:
+                col = int(input("Enter column number (from 1 to 9): "))
+                break
+            except:
+                print(style.BOLD + 'A non-integer was entered. Try again.' + style.END)
+
     arrayPos = (9*(row-1))+(col-1)
     if puz[arrayPos] == ' ':
         val = int(input("Enter desired value (from 1 to 9): "))
