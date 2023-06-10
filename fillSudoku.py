@@ -31,6 +31,7 @@ def fillSudoku(puz):
 
     arrayPos = (9*(row-1))+(col-1)
 
+    #Position value
     if puz[arrayPos] == ' ':
         while True:
             try:
