@@ -48,7 +48,7 @@ def fillSudoku(puz):
         printSudoku(puz)
         return puz
     elif type(puz[arrayPos]) == int:
-        print(style.BOLD + "You are changing the previous value of row " + row + " and column " + col + style.END)
+        print(style.BOLD + "You are changing the previous value of row " + str(row) + " and column " + str(col) + style.END)
         while True:
             try:
                 val = int(input("Enter desired value (from 1 to 9): [If you do not wish to change ths value enter '0']"))
