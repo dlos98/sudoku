@@ -46,17 +46,14 @@ bKey=boldKey(chosenList,chosenKeyList)
 boldNum(chosenList)
 printSudoku(chosenList)
 
-boldNum(chosen)
-printSudoku(chosen)
-
 #Answer sudoku
-while isComplete(fillSudoku(chosen)) == False:
-    isComplete(fillSudoku(chosen))
+while isComplete(fillSudoku(chosenList)) == False:
+    isComplete(fillSudoku(chosenList))
 
 #Change solution to String
 for i in range(81):
-    if type(chosen[i]) == int:
-        chosen[i] = str(chosen[i])
+    if type(chosenList[i]) == int:
+        chosenList[i] = str(chosenList[i])
 
 #Check user solution
 isSolved(chosenList,bKey)
