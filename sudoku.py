@@ -3,57 +3,50 @@ from fillSudoku import *
 from solutionCheck import *
 import random
 
-####################################################################################################################################
-
-#PUZZLES
+####FILES####
 #Open and read puzzles file
 with open('puzzles.csv', 'r') as f:
     puzzlesLines = f.readlines()
 
-####################################################################################################################################
-
-#ANSWER KEYS
 #Open and read answer key file
 with open('solvedPuzzles.csv', 'r') as fKey:
     answersLines = fKey.readlines()
 
-####################################################################################################################################
-
-#RANDOM PUZZLE PRINT
-
-#sudokuAnswers=[solvedSu1,solvedSu2,solvedSu3,solvedSu4,solvedSu5,solvedSu6,solvedSu7,solvedSu8,solvedSu9,solvedSu10]
-#Chose random puzzle
+####RANDOM PUZZLE SELECTION####
+#Chose random number according to number of puzzles saved in file
 rdmNumb=random.randint(1,10)
 
-
-#Hold chosen puzzle from file
+#Hold chosen puzzle from file according to random number
 chosen = puzzlesLines[rdmNumb-1]
 
-#Convert chosen puzzle string to list of strings
+#Convert chosen puzzle single string to list of strings
 chosenList = convertStrToList(chosen)
 
-#Read lines from answer key file, hold correct puzzle key and convert to list of strings
+#Hold puzzle key according to random number
 chosenKey = answersLines[rdmNumb-1]
+
+#Convert puzzle key single string to list of strings 
 chosenKeyList = convertStrToList(chosenKey)
 
-####################################################################################################################################
-
-#PROGRAM
-#Equal key
+####PRINTING THE PUZZLE####
+#Make non-blank values from new sudoku bold in answer key
+#to avoid conflict when comparing to user solution
 bKey=boldKey(chosenList,chosenKeyList)
 
-#Show puzzle to be solved
+#Make non-blank values from new sudoku bold 
 boldNum(chosenList)
+
+#Show sudoku puzzle to user
 printSudoku(chosenList)
 
-#Answer sudoku
+#Run program until puzzle is completed
 while isComplete(fillSudoku(chosenList)) == False:
     isComplete(fillSudoku(chosenList))
 
-#Change solution to String
+#Change solution numbers to string to avoid conflict when comparing to key
 for i in range(81):
     if type(chosenList[i]) == int:
         chosenList[i] = str(chosenList[i])
 
-#Check user solution
+#Check user solution against puzzle key
 isSolved(chosenList,bKey)
