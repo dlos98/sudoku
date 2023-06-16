@@ -1,8 +1,8 @@
+#Declaring values to make string bold and end the style
 class style:
     BOLD = "\033[1m"
     END = "\033[0m"
 
-#FUNCTIONS
 #Print function
 def printSudoku(puz):
     count=0
