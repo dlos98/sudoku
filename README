@@ -6,7 +6,16 @@ If it is correct you may choose to start a new puzzle or not. If it is wrong you
 
 
 CONTENT TEMPLATE
+
 1.About the project
+    This project was developed for entretainment and learning purposes. The objective was to relearn and review Python as well as learning to use Git. 
+    In order to make this a fun project, I chose to create a sudoku which is somethinf that I enjoy and therefore would like doing.
+    
+    *Built with
+        This project was created using Python.
+    
 2.Prerequisites
+    The project uses Python 3.
+    
 3.Use
 4.Roadmap
