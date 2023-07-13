@@ -5,11 +5,11 @@ Once the whole puzzle is solved, it will say if it is solved correctly or not.
 If it is correct you may choose to start a new puzzle or not. If it is wrong you may start over or choose a new one.
 
 
-CONTENT TEMPLATE
+<br>CONTENT TEMPLATE</br>
 
 1.About the project
     This project was developed for entretainment and learning purposes. The objective was to relearn and review Python as well as learning to use Git. 
-    In order to make this a fun project, I chose to create a sudoku which is somethinf that I enjoy and therefore would like doing.
+    In order to make this a fun project, I chose to create a sudoku which is something that I enjoy and therefore would like doing. This project is shown in console and has no GUI.
     
     *Built with
         This project was created using Python.
@@ -18,4 +18,15 @@ CONTENT TEMPLATE
     The project uses Python 3.
     
 3.Use
+    To use this project, first save or clone it to your desktop. After that, run the program from the terminal, make sure you have Python installed.
+    The program will then show you a sudoku puzzle chosen at random and ask you for a row number, then it will ask for a column number and finally, the value you wish to put in the position you selected.
+    If the postion does not have a previous value, the number input will be added to the grid. If the position selected had a predetermined value, you will be asked to choose a new position. In the case that the position had a value you previously input, you will be asked if you are sure you want to change that value and give you the option to cancel or change the number.
+    When the value is added to the puzzle the program will then again ask for the position and number values until the puzzle is completed.
+    Once the puzzle is completely solved, the program will check your solution and tell you if it was completed successfully or not.
+
 4.Roadmap
+    *Start program.
+    *Input row, column and value.
+    *Choose new position or value depending on position input.
+    *Fill puzzle until complete.
+    *Check if solution is correct or not.
